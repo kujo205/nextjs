@@ -4,4 +4,5 @@ Reference [repo](https://github.com/mschwarzmueller/nextjs-course-code) of a cou
 
 **Each branch contains diffrents demo projects created throughout this course**
 
-1. [Starting demo project]()
+1. [Hello nextjs project](https://github.com/kujo205/nextjs/tree/demo-01)
+2. [Routing](https://github.com/kujo205/nextjs/tree/routing-02)
