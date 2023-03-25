@@ -6,4 +6,4 @@ Reference [repo](https://github.com/mschwarzmueller/nextjs-course-code) of a cou
 
 1. [Hello nextjs project](https://github.com/kujo205/nextjs/tree/demo-01)
 2. [Routing](https://github.com/kujo205/nextjs/tree/routing-02)
-3. [Events demo (routing-practice)]https://github.com/kujo205/nextjs/tree/routing-practice-02
+3. [Events demo (routing-practice)](https://github.com/kujo205/nextjs/tree/routing-practice-02)
