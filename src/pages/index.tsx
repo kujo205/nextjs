@@ -12,7 +12,7 @@ export default function Home({ products }: { products: Product[] }) {
     <>
       <ul>
         {products.map((product: Product) => (
-          <Link key={product.id} href={`/${product.id}`}>
+          <Link key={product.id} href={`/products/${product.id}`}>
             <li>{product.title}</li>
           </Link>
         ))}
