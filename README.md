@@ -4,6 +4,7 @@ Reference [repo](https://github.com/mschwarzmueller/nextjs-course-code) of a cou
 
 **Each branch contains diffrents demo projects created throughout this course**
 
-1. [Hello nextjs project](https://github.com/kujo205/nextjs/tree/demo-01)
-2. [Routing](https://github.com/kujo205/nextjs/tree/routing-02)
-3. [Events demo (routing-practice)](https://github.com/kujo205/nextjs/tree/routing-practice-02)
+1. [Hello nextjs project](https://github.com/kujo205/nextjs/tree/01-demo)
+2. [Routing](https://github.com/kujo205/nextjs/tree/02-routing)
+3. [Events demo (routing-practice)](https://github.com/kujo205/nextjs/tree/02-routing-practice)
+4. [Pre-rendering lecture](https://github.com/kujo205/nextjs/tree/03-pre-rendering)
