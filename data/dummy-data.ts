@@ -1,4 +1,4 @@
-export interface DummyData{
+export interface DummyEvent{
     id: string,
       title: string,
       description: string,
@@ -13,7 +13,7 @@ export interface dateFilter{
     year:number,
 }
 
-const DUMMY_EVENTS:DummyData[] = [
+const DUMMY_EVENTS:DummyEvent[] = [
     {
       id: 'e1',
       title: 'Programming for everyone',
