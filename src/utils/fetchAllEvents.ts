@@ -14,3 +14,21 @@ export const fetchAll=async():Promise<DummyEvent[]>=>{
     return events;
 }
 
+
+export async function getFilteredEvents(dateFilter:dateFilter):Promise<DummyEvent[]> {
+    const { year, month } = dateFilter;
+  
+    const events=await fetchAll();
+
+    let filteredEvents = events.filter((event) => {
+      const eventDate = new Date(event.date);
+      return eventDate.getFullYear() === year && eventDate.getMonth() === month - 1;
+    });
+  
+    return filteredEvents;
+  }
+
+export interface dateFilter{
+    month:number,
+    year:number,
+}

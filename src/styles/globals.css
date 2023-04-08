@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:wght@400;700&display=swap');
 
+a{
+  text-decoration: none;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -23,4 +27,17 @@ h6 {
   margin-top: 1rem !important;
   margin: auto;
   text-align: center;
+}
+
+
+
+.btn {
+  font: inherit;
+  padding: 0.25rem 0.5rem;
+  background-color: #03be9f;
+  border: 1px solid #03be9f;
+  color: #dafff7;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: auto;
 }
