@@ -4,7 +4,7 @@ import {SearchForm} from '../../components/events/EventsSeacrh';
 import { useRouter } from 'next/router';
 import type { GetStaticProps,GetStaticPropsResult,InferGetStaticPropsType } from 'next';
 import { DummyEvent } from '../../../data/dummy-data';
-
+import { fetchAll } from '@/utils/fetchAllEvents';
 
 export default function Events({events}:InferGetStaticPropsType<typeof getStaticProps>) {
     const router = useRouter();
@@ -25,18 +25,7 @@ export default function Events({events}:InferGetStaticPropsType<typeof getStatic
 
 
 export const getStaticProps:GetStaticProps<{events:DummyEvent[]}>=async ()=>{
-  const events=[];
-  try{
-    const rowData=await fetch('https://nextjs-d36f3-default-rtdb.firebaseio.com/events.json');
-    const data= await rowData.json() as {[id:string]:DummyEvent};
-
-
-    for (const event in data)events.push(data[event]);
-  }catch(err){
-    console.error(err)
-  }
-  
-
+  const events=await fetchAll();
   return ({
     props:{
       events
