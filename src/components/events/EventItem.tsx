@@ -5,7 +5,7 @@ import styles from './EventItem.module.css';
 import DateIcon from "../icons/DateIcon";
 import AddressIcon from "../icons/AddressIcon";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
-
+import Image from "next/image";
 
 
 export const EventItem: FC<{ event: DummyEvent }> = ({ event }) => {
@@ -24,7 +24,7 @@ export const EventItem: FC<{ event: DummyEvent }> = ({ event }) => {
 
   return (
     <li className={styles.item}>
-        <img src={'/'+event.image}/>
+        <Image src={'/'+event.image} alt={event.title} height={100} width={200}/>
         <div className={styles.content}>
             <div className={styles.summary}>
                 <h2>
