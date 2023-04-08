@@ -1,4 +1,4 @@
-import { DummyData } from "../../../data/dummy-data";
+import { DummyEvent } from "../../../data/dummy-data";
 import { FC } from "react";
 import {Button} from "../ui/Button";
 import styles from './EventItem.module.css';
@@ -8,7 +8,7 @@ import ArrowRightIcon from "../icons/ArrowRightIcon";
 
 
 
-export const EventItem: FC<{ event: DummyData }> = ({ event }) => {
+export const EventItem: FC<{ event: DummyEvent }> = ({ event }) => {
 
     const humanReadableDate=new Date(event.date)
     .toLocaleDateString('en-UA',{
@@ -19,7 +19,6 @@ export const EventItem: FC<{ event: DummyData }> = ({ event }) => {
 
     const formattedAddress=event.location.replace(', ','\n');
 
-    console.log(formattedAddress)
     
 
 
