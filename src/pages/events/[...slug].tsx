@@ -9,7 +9,6 @@ import Link from "next/link";
 
 
 export default function Event({events,filterObj,hasError}:InferGetServerSidePropsType<typeof getServerSideProps>) {
-  console.log(hasError)
 
   if (hasError||!filterObj||!events) {
     return <p className="center">Something is wrong with your input</p>;

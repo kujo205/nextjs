@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import type { GetStaticProps,GetStaticPropsResult,InferGetStaticPropsType } from 'next';
 import { DummyEvent } from '../../../data/dummy-data';
 import { fetchAll } from '@/utils/fetchAllEvents';
+import Head from 'next/head';
 
 export default function Events({events}:InferGetStaticPropsType<typeof getStaticProps>) {
     const router = useRouter();
@@ -17,6 +18,13 @@ export default function Events({events}:InferGetStaticPropsType<typeof getStatic
 
   return (
     <>
+    <Head>
+      <title>
+        All events
+      </title>
+      <meta name='description' content='This is a page with all the events components'/>
+
+    </Head>
     <SearchForm onSubmit={submitHandler}/>
      <EventsList events={events}/>
     </>

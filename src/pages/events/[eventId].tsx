@@ -6,6 +6,7 @@ import EventContent from "../../components/events/event-detail/event-content";
 import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { DummyEvent } from "../../../data/dummy-data";
 import { fetchAll } from '@/utils/fetchAllEvents';
+import Head from "next/head";
 
 export default function Event({event}:InferGetStaticPropsType<typeof getStaticProps>) {
  
@@ -13,6 +14,15 @@ export default function Event({event}:InferGetStaticPropsType<typeof getStaticPr
 
   return (
     <>
+      <Head>
+        <title>
+          {event.title}
+        </title>
+        <meta 
+        name="description"
+        content={event.description}
+        />
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}
