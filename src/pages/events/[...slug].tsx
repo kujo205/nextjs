@@ -21,7 +21,7 @@ export default function Event({events,filterObj,hasError}:InferGetServerSideProp
     
     return <Fragment><p className="center">No events for {(humanReadableDate.toString())}</p>
       <div className="center">
-      <Link href={'/events'} className="btn">Back to safety</Link>
+      <Link href={'/events'} className="btn-primary">Back to safety</Link>
       </div>
     
     </Fragment>

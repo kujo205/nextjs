@@ -12,6 +12,7 @@ body {
   font-family: 'Open Sans', 'Lato', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #dafff7;
 }
 
 h1,
@@ -34,10 +35,36 @@ h6 {
 .btn {
   font: inherit;
   padding: 0.25rem 0.5rem;
-  background-color: #03be9f;
   border: 1px solid #03be9f;
   color: #dafff7;
   border-radius: 4px;
   cursor: pointer;
   margin: auto;
+  transition: .2s linear all;
+}
+
+.btn-primary{
+  @extend .btn;
+  background-color: #03be9f;
+}
+
+.btn-secondary{
+  @extend .btn;
+  background-color: #dafff7;
+  color: #03be9f;
+  &:hover{
+    background-color: #03be9f;
+    color: #dafff7;
+  }
+}
+
+input,textarea{
+  outline: none;
+}
+
+li,ul{
+  list-style-type: none;
+}
+ul{
+  padding: 0;
 }

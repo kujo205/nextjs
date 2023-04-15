@@ -1,5 +1,6 @@
 import { DummyEvent } from "../../data/dummy-data";
 import { EventsList } from "../components/events/EventsList";
+import {NewsLetterRegistration} from '../components/input/NewsLetterRegistration';
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
@@ -12,6 +13,7 @@ export default function Home({
         <title>Home page</title>
         <meta name="description" content="this is my first next js page" />
       </Head>
+      <NewsLetterRegistration/>
       <EventsList events={featuredEvents} />
       <div></div>
     </>
