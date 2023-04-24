@@ -46,13 +46,19 @@ const handler: NextApiHandler = async (req, res) => {
     }
   }
   if (req.method === "GET") {
-    const documnets = await db
-      .collection("comments")
-      .find()
-      .sort({ _id: -1 })
-      .toArray();
+    let documnets;
+    try {
+      documnets = await db
+        .collection("comments")
+        .find()
+        .sort({ _id: -1 })
+        .toArray();
 
-    client.close();
+      client.close();
+    } catch (error) {
+      res.status(500).json({ message: "internal error" });
+      return;
+    }
 
     res.status(201).json(documnets);
     return;

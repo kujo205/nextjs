@@ -13,20 +13,36 @@ import { DummyEvent } from "../../../data/dummy-data";
 import { fetchAll } from "@/utils/fetchAllEvents";
 import Head from "next/head";
 import { CommentsSection } from "@/components/input/CommentsSection";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import NotificationCxt from "../../../store/notification-context";
+import { mongodbComment } from "@/components/input/CommentsSection";
 
 export default function Event({
   event,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [comments, setComments] = useState<CommentType[]>([]);
+  const [comments, setComments] = useState<mongodbComment[]>([]);
+
+
+  const {showNotification}=useContext(NotificationCxt);
 
   const router=useRouter();
 
   useEffect(() => {
     const eventId=router.query.eventId;
+    // showNotification({message:'Loading Data',status:'pending',title:'Data fetcher'});
+
     fetch(`/api/comments/${eventId}`)
-      .then((rawData) => rawData.json())
-      .then((data: CommentType[]) => setComments(data));
+      .then((rawData) => {
+        if(!rawData.ok)throw Error();
+        return rawData.json()})
+      .then((data: mongodbComment[]) => {
+        setComments(data)
+        showNotification({message:'Data loaded',status:'success',title:'Data fetched'});
+      })
+      .catch((error)=>{
+        showNotification({message:'Failed to load',status:'error',title:'Failure'});
+      });
+
   }, []);
 
   if (!event) return <p>No event found!</p>;
