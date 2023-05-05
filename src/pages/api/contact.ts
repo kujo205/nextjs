@@ -1,9 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-
-// type Data = {
-//   name: string;
-// };
+import { MongoClient } from "mongodb";
 
 interface reqData {
   email: string;
@@ -11,7 +8,10 @@ interface reqData {
   message: string;
 }
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === "POST") {
     const { email, name, message }: reqData = req.body;
     if (
@@ -34,11 +34,33 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         message,
       };
 
+      const url = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.yx48dmp.mongodb.net/my-site`;
 
-      console.log(newMessage);
+      console.log(url);
 
+      let client;
+      try {
+        client = await MongoClient.connect(url);
+      } catch (err) {
+        res.status(500).json({ message: "Cannot connect to db" });
+        return;
+      }
 
-      res.status(201).json({newMessage,message:'Message sent'});
+      const db = client.db();
+      let result;
+      try {
+        result = await db.collection("messages").insertOne(newMessage);
+      } catch (err) {
+        client.close();
+        res.status(500).json({ message: "internal server error" });
+        return;
+      }
+
+      res
+        .status(201)
+        .json({ newMessage, message: "Message sent", id: result.insertedId });
+
+      client.close();
     }
   }
 
