@@ -1,8 +1,7 @@
 import React, { FC, FormEvent, useRef,useState } from "react";
 import classes from "./ContactsForm.module.css";
 
-export const ContactsForms: FC<{ onSubmit: (data: object) => void }> = ({
-  onSubmit,
+export const ContactsForms = ({
 }) => {
   const emailRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);

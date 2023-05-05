@@ -36,7 +36,7 @@ export const PostContent: FC<{ post: Post }> = ({ post }) => {
       const _language = _array[1];
       return (
         <SyntaxHighlighter style={atomDark} language={_language}>
-          {code.children[0]}
+          {code.children[0] as string}
         </SyntaxHighlighter>
       );
     },
