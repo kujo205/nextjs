@@ -1,7 +1,7 @@
 ---
 title: Why react is better than vue
 date: '2023-07-03'
-image: getting-started-nextjs.png
+image: react-vue.png
 excerpt: Well because i think so, there is no better explanation than this
 isFeatured: true
 ---

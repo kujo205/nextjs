@@ -29,7 +29,7 @@ export const PostItem: React.FC<Post> = ({
             height={300}
             width={200 }
             // src={`/images/posts/${slug}/image`}
-            src={`/images/posts/getting-started-with-nextjs/getting-started-nextjs.png`}
+            src={`/images/posts/${slug}/${image}`}
             alt={title}
             layout="responsive"
           />
