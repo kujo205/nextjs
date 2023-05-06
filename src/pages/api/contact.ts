@@ -34,7 +34,7 @@ export default async function handler(
         message,
       };
 
-      const url = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.yx48dmp.mongodb.net/my-site`;
+      const url = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTER}.yx48dmp.mongodb.net/${process.env.MONGODB_DB}`;
 
       console.log(url);
 

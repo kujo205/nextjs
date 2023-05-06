@@ -2,9 +2,18 @@ import { PostContent } from "@/components/posts/post-detail/PostContent";
 import { GetStaticProps, InferGetStaticPropsType, GetStaticPaths } from "next";
 import { Post } from "@/interfaces/Post";
 import { getPostData, getAllPosts, getAllPaths } from "@/lib/posts-util";
+import Head from "next/head";
 
 const PostPage = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return <PostContent post={post}/>;
+  return (
+    <>
+      <Head>
+        <title>{post.title}</title>
+        <meta name="descrition" content={post.excerpt} />
+      </Head>
+      <PostContent post={post} />;
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<{ post: Post }> = async (

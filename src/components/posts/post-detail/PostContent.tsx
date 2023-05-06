@@ -6,8 +6,15 @@ import { DUMMY_POSTS } from "@/dummy-data/posts";
 import classes from "./PostContent.module.css";
 import { Post } from "@/interfaces/Post";
 import Image from "next/image";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
+import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript'
+import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css'
+
+
+SyntaxHighlighter.registerLanguage('js',js);
+SyntaxHighlighter.registerLanguage('css',css);
+
 
 export const PostContent: FC<{ post: Post }> = ({ post }) => {
   const { content, title, slug } = post;

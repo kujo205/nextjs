@@ -6,6 +6,7 @@ import {ContactsForms} from './ContactsForms';
 export const Contacts = () => {
   return (
     <ContactsForms/>
+    
   )
 }
 
