@@ -1,3 +1,5 @@
+
+
 {
   "compilerOptions": {
     "target": "es5",
@@ -18,6 +20,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/auth/auth-form.js", "src/components/profile/user-profile.js"],
   "exclude": ["node_modules"]
 }
